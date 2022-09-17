@@ -1,0 +1,138 @@
+[
+    {
+        "name": "10",
+        "hostname": "c6100-s01-eth0.host",
+        "ip": "192.168.3.10",
+        "macaddr": "00:8c:fa:00:17:04",
+        "idrac": {
+            "ip": "192.168.5.10",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "2",
+            "material-model": "c6100",
+            "alim-count": "1"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "11",
+        "hostname": "c6100-s02-eth0.host",
+        "ip": "192.168.3.11",
+        "macaddr": "00:8c:fa:00:29:24",
+        "idrac": {
+            "ip": "192.168.5.11",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "2",
+            "material-model": "c6100",
+            "alim-count": "1"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "12",
+        "hostname": "c6100-s03-eth0.host",
+        "ip": "192.168.3.12",
+        "macaddr": "00:26:6c:ff:b3:bc",
+        "idrac": {
+            "ip": "192.168.5.12",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "2",
+            "material-model": "c6100",
+            "alim-count": "1"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "13",
+        "hostname": "c6100-s04-eth0.host",
+        "ip": "192.168.3.13",
+        "macaddr": "00:8c:fa:00:27:ec",
+        "idrac": {
+            "ip": "192.168.5.13",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "2",
+            "material-model": "c6100",
+            "alim-count": "1"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "14",
+        "hostname": "r610-5BF035J-etho.host",
+        "ip": "192.168.3.14",
+        "macaddr": "a4:ba:db:50:47:ea",
+        "idrac": {
+            "ip": "192.168.5.14",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "2",
+            "material-model": "r610",
+            "alim-count": "2"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "15",
+        "hostname": "r310-FSGMD5J-etho.host",
+        "ip": "192.168.3.15",
+        "macaddr": "d4:ae:52:a7:56:41",
+        "idrac": {
+            "ip": "192.168.5.15",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "1",
+            "material-model": "r310",
+            "alim-count": "2"
+        },
+        "accepted": "true"
+    },
+    {
+        "name": "16",
+        "hostname": "r310-5L4BS4J-etho.host",
+        "ip": "192.168.3.16",
+        "macaddr": "a4:ba:db:50:47:e",
+        "idrac": {
+            "ip": "192.168.5.16",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "1",
+            "material-model": "r310",
+            "alim-count": "2"
+        },
+        "accepted": "false"
+    },
+    {
+        "name": "17",
+        "hostname": "r310-BSGMD5J-etho.host",
+        "ip": "192.168.3.17",
+        "macaddr": "d4:ae:52:a7:6a:fe",
+        "idrac": {
+            "ip": "192.168.5.17",
+            "user": "root",
+            "pass": "calvin"
+        },
+        "labels": {
+            "cpu-count": "1",
+            "material-model": "r310",
+            "alim-count": "2"
+        },
+        "accepted": "false"
+    }
+]
