@@ -49,7 +49,7 @@ export HOST_IP="192.168.2.44"
 
 # Create a kube in single container
 talosctl cluster create \
-  --name sidero-demo \
+  --name sidero-local \
   -p 69:69/udp,8081:8081/tcp,51821:51821/udp \
   --workers 0 \
   --config-patch '[{"op": "add", "path": "/cluster/allowSchedulingOnMasters", "value": true}]' \

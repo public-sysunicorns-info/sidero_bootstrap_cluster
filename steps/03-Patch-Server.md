@@ -35,6 +35,8 @@ Wait for all the wanted server to be listed in
     kubectl get servers
 ```
 
+[link: Add disks to nodes](https://kubito.dev/posts/talos-linux-additonal-disks-to-nodes/)
+
 Execute the patch
 ```sh
     ./patch_server.sh

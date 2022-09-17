@@ -2,7 +2,7 @@
 # Create the cluster in sidero
 ```sh
 export CONTROL_PLANE_SERVERCLASS=small-ard-serverclass
-export WORKER_SERVERCLASS=large-ard-serverclass
+export WORKER_SERVERCLASS=large-serverclass
 export TALOS_VERSION=v0.14.0
 export KUBERNETES_VERSION=v1.22.2
 export CONTROL_PLANE_PORT=6443
@@ -36,11 +36,22 @@ kubectl \
     talosctl bootstrap --context=cluster-0 -n 192.168.3.15
 ```
 
+# Accept all servers
+```sh
+./patch_accepted.sh
+```
+
 # Scale controlplane to x
-
+```sh
+    kubectl patch TalosControlPlane cluster-0-cp --type='json' -p '[{"op":"replace", "path":"/spec/replicas", "value": 3}]'
+```
 # Scale worker to x
-
+```sh
+    kubectl patch MachineDeployment cluster-0-workers --type='json' -p '[{"op":"replace", "path":"/spec/replicas", "value": 5}]'
+```
 # Retrieve Kubeconfig
 ```sh
     talosctl --talosconfig cluster-0-talosconfig --nodes 192.168.3.15 kubeconfig
 ```
+
+# Add Nodes to Talosconfig
