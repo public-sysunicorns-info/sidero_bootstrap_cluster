@@ -1,0 +1,68 @@
+[
+    {
+        "op": "add",
+        "path": "/machine/kubelet/extraMounts",
+        "value":[
+            {
+                "destination": "/var/mnt/ssd0",
+                "type": "bind",
+                "source": "/var/mnt/ssd0",
+                "options":[
+                    "bind",
+                    "rshared",
+                    "rw"
+                ]
+            },
+            {
+                "destination": "/var/mnt/ssd1",
+                "type": "bind",
+                "source": "/var/mnt/ssd1",
+                "options":[
+                    "bind",
+                    "rshared",
+                    "rw"
+                ]
+            },
+            {
+                "destination": "/var/mnt/ssd2",
+                "type": "bind",
+                "source": "/var/mnt/ssd2",
+                "options":[
+                    "bind",
+                    "rshared",
+                    "rw"
+                ]
+            }
+        ]
+    },
+    {
+        "op": "replace",
+        "path": "/machine/disks",
+        "value": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "mountpoint": "/var/mnt/ssd0"
+                    }
+                ]
+            },
+            {
+                "device": "/dev/sdb",
+                "partitions": [
+                    {
+                        "mountpoint": "/var/mnt/ssd1"
+                    }
+                ]
+            },
+            {
+                "device": "/dev/sdc",
+                "partitions": [
+                    {
+                        "mountpoint": "/var/mnt/ssd2"
+                    }
+                ]
+            }
+        ]
+    }
+]

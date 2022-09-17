@@ -1,0 +1,36 @@
+[
+    {
+        "op": "add",
+        "path": "/machine/install/diskSelector",
+        "value": {
+            "model": "Flash*"
+        }
+    },
+    {
+        "op": "replace",
+        "path": "/machine/install/bootloader",
+        "value": true
+    },
+    {
+        "op": "replace",
+        "path": "/cluster/network/cni",
+        "value": {
+            "name": "custom",
+            "urls": [
+                "http://192.168.2.44:8090/cilium.yaml"
+            ]
+        }
+    },
+    {
+        "op": "add",
+        "path": "/machine/install/extensions",
+        "value": [
+            {
+                "image": "ghcr.io/siderolabs/intel-ucode:20220809"
+            },
+            {
+                "image": "ghcr.io/siderolabs/iscsi-tools:v0.1.1"
+            }
+        ]
+    }
+]
