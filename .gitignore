@@ -1,0 +1,3 @@
+steps/03-resources/cluster-0-talosconfig
+steps/03-resources/cluster-0.yaml
+data/webserver/cilium.yaml
