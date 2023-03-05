@@ -28,6 +28,7 @@ export CONTROL_PLANE_ENDPOINT=192.168.3.15
 export SIDERO_CLUSTER_PATH=data/cluster-0.yaml
 export SIDERO_CLUSTER_SECRET_PATH=data/cluster-0-talosconfig
 export TALOS_CTX=cluster-0
+export CLUSTER_KUBE_CTX=admin@cluster-0
 
 clean_previous_talos_install () {
   # /!\ it will clean previous installation
@@ -242,12 +243,30 @@ expand_workers(){
 # bootstrap_sidero_cluster
 # accept_all_servers
 # expand_control_plane
-talosctl config endpoints --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17
-talosctl config nodes --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17
+# talosctl config endpoints --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17
+# talosctl config nodes --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17
 
 
-expand_workers
-talosctl config nodes --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17 192.168.3.10 192.168.3.12 192.168.3.13 192.168.3.14
+# expand_workers
+# talosctl config nodes --context ${TALOS_CTX} ${CONTROL_PLANE_ENDPOINT} 192.168.3.16 192.168.3.17 192.168.3.10 192.168.3.14
 
-# talosctl kubeconfig
+# talosctl kubeconfig --force -e ${CONTROL_PLANE_ENDPOINT} -n ${CONTROL_PLANE_ENDPOINT}
 
+
+# helm repo add metallb https://metallb.github.io/metallb --kube-context ${CLUSTER_KUBE_CTX}
+# helm install metallb metallb/metallb --create-namespace -n metallb-system --kube-context ${CLUSTER_KUBE_CTX}
+# kubectl apply -f steps/05-resources/metallb/default-ipaddresspool.yml
+
+# helm repo add bitnami https://charts.bitnami.com/bitnami --kube-context ${CLUSTER_KUBE_CTX}
+# helm install nginx bitnami/nginx-ingress-controller --create-namespace -n nginx-system --kube-context ${CLUSTER_KUBE_CTX}
+
+# helm repo add openebs-jiva https://openebs.github.io/jiva-operator
+# helm upgrade --install --create-namespace --namespace openebs --version 3.2.0 openebs-jiva openebs-jiva/jiva --values
+
+kubectl label node talos-1lm-txf openebs.io/engine=mayastor
+helm repo add mayastor https://openebs.github.io/mayastor-extensions/ 
+# helm search repo mayastor --versions
+helm upgrade --install mayastor mayastor/mayastor -n mayastor --create-namespace --version 2.0.0 \
+  --set etcd.common.storageClass=openebs-jiva-csi-default \
+  --set loki-stack.loki.persistence.storageClassName=openebs-jiva-csi-default \
+  --set etcd.replicaCount=2

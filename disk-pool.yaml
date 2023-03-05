@@ -1,0 +1,23 @@
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-14
+  namespace: mayastor
+spec:
+  node: talos-1lm-txf
+  disks: [
+    "/dev/sda",
+    "/dev/sdb",
+    "/dev/sdc"
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-10
+  namespace: mayastor
+spec:
+  node: talos-9zt-svv
+  disks: [
+    "/dev/sda"
+  ]

@@ -44,5 +44,21 @@
         "value": {
             "vm.nr_hugepages": "1024"
         }
+    },
+    {
+        "op": "add",
+        "path": "/machine/kubelet/extraMounts",
+        "value":[
+            {
+                "destination": "/var/openebs/local",
+                "type": "bind",
+                "source": "/var/openebs/local",
+                "options":[
+                    "bind",
+                    "rshared",
+                    "rw"
+                ]
+            }
+        ]
     }
 ]

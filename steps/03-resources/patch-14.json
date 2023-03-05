@@ -64,5 +64,10 @@
                 ]
             }
         ]
+    },
+    {
+        "op": "replace",
+        "path": "/machine/network/hostname",
+        "value": "r610-5BF035J-eth0"
     }
 ]

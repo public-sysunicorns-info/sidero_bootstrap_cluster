@@ -28,5 +28,10 @@
                 ]
             }
         ]
+    },
+    {
+        "op": "replace",
+        "path": "/machine/network/hostname",
+        "value": "c6100-s0-eth0"
     }
 ]
