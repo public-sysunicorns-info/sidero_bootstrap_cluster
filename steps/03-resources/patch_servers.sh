@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -ex
 
 _servers_object_list=$(kubectl get server -o=json)

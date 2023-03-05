@@ -4,9 +4,9 @@
         "path": "/machine/kubelet/extraMounts",
         "value":[
             {
-                "destination": "/var/mnt/ssd0",
+                "destination": "/var/mnt/ssd",
                 "type": "bind",
-                "source": "/var/mnt/ssd0",
+                "source": "/var/mnt/ssd",
                 "options":[
                     "bind",
                     "rshared",
@@ -43,7 +43,7 @@
                 "device": "/dev/sda",
                 "partitions": [
                     {
-                        "mountpoint": "/var/mnt/ssd0"
+                        "mountpoint": "/var/mnt/ssd"
                     }
                 ]
             },
