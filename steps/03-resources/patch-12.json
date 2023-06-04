@@ -1,21 +1,5 @@
 [
     {
-        "op": "add",
-        "path": "/machine/kubelet/extraMounts",
-        "value":[
-            {
-                "destination": "/var/mnt/ssd",
-                "type": "bind",
-                "source": "/var/mnt/ssd",
-                "options":[
-                    "bind",
-                    "rshared",
-                    "rw"
-                ]
-            }
-        ]
-    },
-    {
         "op": "replace",
         "path": "/machine/disks",
         "value": [
