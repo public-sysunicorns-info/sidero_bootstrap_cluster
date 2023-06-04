@@ -9,7 +9,7 @@ metadata:
       - name: StorageType
         value: hostpath
       - name: BasePath
-        value: /var/mound/ssd
+        value: /var/openebs/local
 provisioner: openebs.io/local
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
@@ -17,4 +17,8 @@ allowedTopologies:
 - matchLabelExpressions:
   - key: kubernetes.io/hostname
     values:
-    - talos-192-168-3-11
+    - c6100-s01-eth0
+    - c6100-s02-eth0
+    - c6100-s03-eth0
+    - c6100-s04-eth0
+    - r610-5bf035j-eth0

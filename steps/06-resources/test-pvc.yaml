@@ -4,7 +4,7 @@ metadata:
   name: local-hostpath-pvc
   namespace: openebs
 spec:
-  storageClassName: local-hostpath
+  storageClassName: openebs-jiva-csi-default
   accessModes:
     - ReadWriteOnce
   resources:

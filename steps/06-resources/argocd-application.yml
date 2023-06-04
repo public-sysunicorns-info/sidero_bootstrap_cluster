@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-of-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sysunicorns-info/argocd_infra_ragnar.git
+    targetRevision: HEAD
+    path: argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd

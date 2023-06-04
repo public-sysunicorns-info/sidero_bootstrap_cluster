@@ -1,17 +1,76 @@
 apiVersion: "openebs.io/v1alpha1"
-kind: MayastorPool
+kind: DiskPool
 metadata:
-  name: pool-talos-192-168-3-10
+  name: pool-node-14-a
   namespace: mayastor
 spec:
-  node: talos-192-168-3-10
-  disks: ["/dev/sda"]
+  node: r610-5bf035j-eth0
+  disks: [
+    "/dev/sda",
+  ]
 ---
 apiVersion: "openebs.io/v1alpha1"
-kind: MayastorPool
+kind: DiskPool
 metadata:
-  name: pool-talos-192-168-3-11
+  name: pool-node-14-b
   namespace: mayastor
 spec:
-  node: talos-192-168-3-11
-  disks: ["/dev/sda"]
+  node: r610-5bf035j-eth0
+  disks: [
+    "/dev/sdb",
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-14-c
+  namespace: mayastor
+spec:
+  node: r610-5bf035j-eth0
+  disks: [
+    "/dev/sdc"
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-10
+  namespace: mayastor
+spec:
+  node: c6100-s01-eth0
+  disks: [
+    "/dev/sda"
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-11
+  namespace: mayastor
+spec:
+  node: c6100-s02-eth0
+  disks: [
+    "/dev/sda"
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-12
+  namespace: mayastor
+spec:
+  node: c6100-s03-eth0
+  disks: [
+    "/dev/sda"
+  ]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: pool-node-13
+  namespace: mayastor
+spec:
+  node: c6100-s04-eth0
+  disks: [
+    "/dev/sda"
+  ]

@@ -1,9 +1,0 @@
-apiVersion: openebs.io/v1
-kind: JivaVolumePolicy
-metadata:
-  name: jiva-custom-policy
-  namespace: openebs
-spec:
-  replicaSC: local-hostpath
-  target:
-    replicationFactor: 1
