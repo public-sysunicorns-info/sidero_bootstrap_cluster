@@ -260,13 +260,22 @@ expand_workers(){
 # helm repo add bitnami https://charts.bitnami.com/bitnami --kube-context ${CLUSTER_KUBE_CTX}
 # helm install nginx bitnami/nginx-ingress-controller --create-namespace -n nginx-system --kube-context ${CLUSTER_KUBE_CTX}
 
-# helm repo add openebs-jiva https://openebs.github.io/jiva-operator
-# helm upgrade --install --create-namespace --namespace openebs --version 3.2.0 openebs-jiva openebs-jiva/jiva --values
+helm repo add openebs-jiva https://openebs.github.io/jiva-operator
+helm upgrade --install --create-namespace --namespace openebs --version 3.2.0 openebs-jiva openebs-jiva/jiva
+
+# Patch pod-security to enable privilege for openebs
+kubectl patch namespace openebs -p '{"metadata":{"labels":{"pod-security.kubernetes.io/audit":"privileged","pod-security.kubernetes.io/enforce":"privileged","pod-security.kubernetes.io/warn":"privileged"}}}'
+
+kubectl apply -f ./steps/06-resources/openebs-jiva-csi-icsciadm.yaml
+kubectl apply -f ./steps/06-resources/openebs-jiva-policy.yaml
+kubectl apply -f ./steps/06-resources/openebs-jiva-storageclass.yaml
 
 kubectl label node talos-1lm-txf openebs.io/engine=mayastor
 helm repo add mayastor https://openebs.github.io/mayastor-extensions/ 
 # helm search repo mayastor --versions
 helm upgrade --install mayastor mayastor/mayastor -n mayastor --create-namespace --version 2.0.0 \
-  --set etcd.common.storageClass=openebs-jiva-csi-default \
-  --set loki-stack.loki.persistence.storageClassName=openebs-jiva-csi-default \
+  --set etcd.common.storageClass=openebs-jiva-csi-custom \
+  --set loki-stack.loki.persistence.storageClassName=openebs-jiva-csi-custom \
   --set etcd.replicaCount=2
+
+kubectl apply -f ./steps/06-resources/mayastor-pool.yml
